@@ -1,0 +1,38 @@
+servers:
+  - name: "webserver-01"
+    ipAddress: "192.168.0.10"
+    description: >
+     Test AAABBB
+     CCCDDEEEFFGG
+     HHIIJJ
+    cpus: 8
+    memory: 64000.00
+    hasPublicIp: No
+    operatingSystem:
+      type: "Linux"
+      distro: "Ubuntu"
+      version: "24.0"
+    disks:
+    - name: "OS Disk"
+      sizeGB: 250
+    - name: "Data disk 1"
+      sizeGB: 500
+    - name: "Data Disk 2"
+      sizeGB: 1000
+    drives: [ "C Drive", "D Drive", "E Drive"]
+  - name: "webserver-02"
+    ipAddress: "192.168.0.11"
+    cpus: 8
+    memory: 64000.00
+    hasPublicIp: No
+    operatingSystem:
+      type: "Linux"
+      distro: "Ubuntu"
+      version: "24.0"
+    disks:
+    - name: "OS Disk"
+      sizeGB: 250
+    - name: "Data disk 1"
+      sizeGB: 500
+    - name: "Data Disk 2"
+      sizeGB: 1000

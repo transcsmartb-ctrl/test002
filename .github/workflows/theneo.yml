@@ -1,0 +1,20 @@
+name: Update API Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'api/**'  # Adjust to match your API spec location
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update Theneo Documentation
+        uses: Theneo-Inc/api-documentation@1.8.0
+        with:
+          FILE_PATH: apidoc/sample.yaml
+          PROJECT_SLUG: theneo-sample-project
+          SECRET: 5c7d34b6-8120-4042-9a1a-be79a6f3cdc2
