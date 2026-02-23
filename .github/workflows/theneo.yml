@@ -1,4 +1,4 @@
-name: Update API Documentation
+name: Update API Documentation test
 
 on:
   push:
