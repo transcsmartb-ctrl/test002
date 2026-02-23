@@ -34,3 +34,17 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+  update-docs:
+    name: update theneo doc
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The job was automatically triggered by github"
+      - uses: actions/checkout@v4
+
+      - name: Update Theneo Documentation
+        uses: Theneo-Inc/api-documentation@1.8.0
+        with:
+          FILE_PATH: apidoc/sample.yaml
+          PROJECT_SLUG: theneo-sample-project
+          SECRET: 5c7d34b6-8120-4042-9a1a-be79a6f3cdc2
