@@ -1,15 +1,17 @@
 name: Update API Documentation test
 
 on:
-  push:
+  pull_request:
     branches: [main]
     paths:
       - 'api/**'  # Adjust to match your API spec location
 
 jobs:
   update-docs:
+    name: update theneo doc
     runs-on: ubuntu-latest
     steps:
+      - run: echo "The job was automatically triggered by github"
       - uses: actions/checkout@v4
 
       - name: Update Theneo Documentation
