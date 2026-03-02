@@ -1,0 +1,23 @@
+name: 自動生成 Schema 表格
+on: [push, pull_request]  # 每次 push/PR 都跑
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 安裝 Python 工具
+      run: pip install jsonschema2md
+      
+    - name: 生成表格
+      run: |
+        jsonschema2md \
+          --schema schemas/smart-monitoring-device.schema.json \
+          --output docs/smart-monitoring-device.md
+        
+    - name: 提交更新
+      run: |
+        git config user.name "GitHub Action"
+        git config user.email "action@github.com"
+        git add docs/smart-monitoring-device.md
+        git diff --staged --quiet || git commit -m "自動更新 schema 表格" && git push
