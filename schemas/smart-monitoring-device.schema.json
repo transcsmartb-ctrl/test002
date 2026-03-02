@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/device/schema#",
+  "$id": "https://schemas.cic.hk/4s-cmp-standard/registry/v2026.02/device/categories/smart-monitoring-device.schema.json",
+  "title": "Smart Monitoring Device",
+  "description": "device schema for smart monitoring device",
+  "version": "2026.02",
+  "allOf": [
+    {
+      "$ref": "https://schemas.cic.hk/4s-cmp-standard/registry/v2026.02/device/base"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "category4S": {
+          "const": "smart-monitoring-device"
+        },
+
+        "worker": {
+          "type": "object",
+          "description": "Information of workers wearing device, including the worker's unique identification ID, the worker's name, and mobile phone number.",
+          "properties": {
+            "workerId": {
+              "type": "string",
+              "description": "ID of the worker (e.g., W123)."
+            },
+            "workerName": {
+              "type": "string",
+              "description": "Name of the worker (e.g., John Doe)."
+            },
+            "phone": {
+              "type": "string",
+              "description": "Worker’s contact number (e.g., 5555-7890)."
+            }
+          },
+          "required": ["workerId", "workerName", "phone"]
+        },
+
+        "additionalProperties": {
+          "type": "object",
+          "description": "Additional properties about the smart monitoring device, including cicSiteId and remark",
+          "properties": {
+            "cicSiteId": {
+              "type": "string",
+              "description": "A unique site ID provided by CIC, and it is recommended to include it for future data exchange."
+            },
+            "remark": {
+              "type": "string",
+              "description": "Additional notes about the smart monitoring device (e.g., In use)."
+            }
+          },
+          "required": []
+        },
+
+        "required": ["category4S", "worker"]
+      }
+    }
+  ]
+}
